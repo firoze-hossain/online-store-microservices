@@ -1,5 +1,7 @@
 package com.product.service;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import com.product.dto.ProductRequest;
@@ -13,11 +15,11 @@ import lombok.RequiredArgsConstructor;
 public class ProductService {
     private final ProductRepository productRepository;
     public Product createProduct(ProductRequest request){
-        Product product=Product.builder().
-        name(request.name())
-        .description(request.description())
-        .price(request.price())
-        build();
+        Product product = Product.builder()
+            .name(request.name())
+            .description(request.description())
+            .price(request.price())
+            .build();
         productRepository.save(product);
         return product;
     }
